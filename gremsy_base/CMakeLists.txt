@@ -40,3 +40,30 @@ add_executable(GimbalNode ${SOURCES})
 add_dependencies(GimbalNode ${PROJECT_NAME}_gencfg)
 
 target_link_libraries(GimbalNode ${catkin_LIBRARIES})
+
+
+#############
+## Install ##
+#############
+
+# Install the node executable
+install(TARGETS GimbalNode
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+# Install launch files (if you have any)
+install(DIRECTORY launch/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+  FILES_MATCHING PATTERN "*.launch"
+)
+
+# Install header files
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+)
+
+# Install config files (dynamic reconfigure cfg, yaml, etc.)
+install(DIRECTORY cfg/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/cfg
+  FILES_MATCHING PATTERN "*.cfg"
+)
