@@ -131,7 +131,7 @@ void GimbalNode::gimbalStateTimerCallback(const ros::TimerEvent& event)
     transform_imu.header.frame_id = "imu_frame";
     transform_imu.child_frame_id = "map";
     transform_imu.transform.rotation = tf2::toMsg(imu_quaternion);
-    bc_.sendTransform(transform_imu);
+    //bc_.sendTransform(transform_imu);
 }
 
 
